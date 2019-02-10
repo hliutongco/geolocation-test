@@ -1,25 +1,23 @@
-let currentLat = 0
-let currentLong = 0
+let latArray = []
+let longArray = []
 
 function success(pos) {
   const crd = pos.coords;
   const div = document.getElementById('text');
   const innerDiv = document.createElement('div')
-  const latCondition = crd.latitude === currentLat
-  const longCondition = crd.longitude === currentLong
-  const totalCondition = latCondition && longCondition
-  // console.log(totalCondition);
-  if(!currentLat || !currentLong || !totalCondition){
-    // if(!totalCondition){
-      currentLat = crd.latitude
-      currentLong = crd.longitude
-      innerDiv.innerHTML = `
-      <p>Your current position is:</p>
-      <p>Latitude : ${crd.latitude}</p>
-      <p>Longitude: ${crd.longitude}</p>
-      <p>More or less ${crd.accuracy} meters.</p>
-      `
-  // }
+  latArray.push(crd.latitude)
+  longArray.push(crd.longitude)
+
+  const sortedLat = latArray.sort()
+  const sortedLong = longArray.sort()
+
+
+  innerDiv.innerHTML = `
+  <p>Max Latitude: ${latArray[0]}</p>
+  <p>Min Latitude : ${latArray[-1]}</p>
+  <p>Max Longitude: ${longArray[1]}</p>
+  <p>Min Longitude: ${longArray[-1]}</p>
+  `
 }
   div.appendChild(innerDiv)
 }

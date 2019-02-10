@@ -9,7 +9,7 @@ function success(pos) {
   const longCondition = crd.longitude === currentLong
   const totalCondition = latCondition && longCondition
   // console.log(totalCondition);
-  if(!currentLat || !currentLong){
+  if(currentLat || currentLong){
     // if(!totalCondition){
       currentLat = crd.latitude
       currentLong = crd.longitude

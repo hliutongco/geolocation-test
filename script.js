@@ -5,8 +5,8 @@ function success(pos) {
   const crd = pos.coords;
   const div = document.getElementById('text');
   const innerDiv = document.createElement('div')
-  const latCondition = Math.round(crd.latitude) === Math.round(currentLat)
-  const longCondition = Math.round(crd.longitude) === Math.round(currentLong)
+  const latCondition = crd.latitude === currentLat
+  const longCondition = crd.longitude === currentLong
   const totalCondition = latCondition && longCondition
   // console.log(totalCondition);
   if(!currentLat || !currentLong){

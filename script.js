@@ -8,9 +8,11 @@ function success(pos) {
   const latCondition = Math.round(crd.latitude) === Math.round(currentLat)
   const longCondition = Math.round(crd.longitude) === Math.round(currentLong)
   const totalCondition = latCondition && longCondition
-
+  // console.log(totalCondition);
   if(!currentLat || !currentLong){
     if(!totalCondition){
+      currentLat = crd.latitude
+      currentLong = crd.longitude
       innerDiv.innerHTML = `
       <p>Your current position is:</p>
       <p>Latitude : ${crd.latitude}</p>

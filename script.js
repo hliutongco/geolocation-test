@@ -10,7 +10,7 @@ function success(pos) {
   const totalCondition = latCondition && longCondition
   // console.log(totalCondition);
   if(!currentLat || !currentLong){
-    if(!totalCondition){
+    // if(!totalCondition){
       currentLat = crd.latitude
       currentLong = crd.longitude
       innerDiv.innerHTML = `
@@ -19,7 +19,7 @@ function success(pos) {
       <p>Longitude: ${crd.longitude}</p>
       <p>More or less ${crd.accuracy} meters.</p>
       `
-  }
+  // }
 }
   div.appendChild(innerDiv)
 }
